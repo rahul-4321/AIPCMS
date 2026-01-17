@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+transformers
+torch
+pillow
+sqlalchemy
+psycopg2-binary
+pydantic-settings
+python-multipart
+python-dotenv
+alembic
+pytest
+httpx
