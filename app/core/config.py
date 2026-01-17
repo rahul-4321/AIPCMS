@@ -26,5 +26,6 @@ class Settings(BaseSettings):
     MODERATION_THRESHOLD: float = float(os.getenv("MODERATION_THRESHOLD", "0.7"))
     NLP_MODEL_NAME: str = os.getenv("NLP_MODEL_NAME")
     VISION_MODEL_NAME: str = os.getenv("VISION_MODEL_NAME")
+    MAX_TOXIC_CONTENT:str = os.getenv("MAX_TOXIC_CONTENT", "3")
 
 settings = Settings()
