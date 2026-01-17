@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, JSON
 from datetime import datetime
-from appp.databse import Base
+from app.database import Base
 
 class ModerationLog(Base):
     __tablename__ = "moderation_logs"
