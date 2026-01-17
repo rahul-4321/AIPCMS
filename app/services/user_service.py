@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from app.models import BlockedUser
 from fastapi import HTTPException
+from app.core.config import settings
 
 class UserService:
     @staticmethod
