@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, UploadFile, File, Form
 from app.services.vision_service import vision_service
 from app.services.user_service import user_service
 from app.database import get_db
-from sqlalchemy import Session
+from sqlalchemy.orm import Session
 from typing import Optional
 from app.models import ModerationLog
 

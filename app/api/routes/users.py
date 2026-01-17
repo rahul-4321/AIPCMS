@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depemds, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from app.models import BlockedUser
 from app.database import get_db
 from sqlalchemy.orm import Session
@@ -40,4 +40,3 @@ async def unblock_user(user_id: str, db: Session = Depends(get_db)):
 async def list_blocked_users(db: Session = Depends(get_db)):
     users=db.query(BlockedUser).all()
     return [user.user_id for user in users]
-    
