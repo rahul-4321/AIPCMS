@@ -11,7 +11,7 @@ class BlockRequest(BaseModel):
     user_id: str
     reason: str
 
-@router.post("block")
+@router.post("/block")
 async def block_user(request: BlockRequest, db: Session = Depends(get_db)):
     exists = db.query(BlockedUser).filter(BlockedUser.user_id == request.user_id).first()
 
@@ -26,11 +26,11 @@ async def block_user(request: BlockRequest, db: Session = Depends(get_db)):
     return {"message": f"User {request.user_id} has been blocked"}
 
 
-@router.post("unblock/{user_id}")
+@router.post("/unblock/{user_id}")
 async def unblock_user(user_id: str, db: Session = Depends(get_db)):
     blocked = db.query(BlockedUser).filter(BlockedUser.user_id == user_id).first()
     if not blocked:
-        raise HTTPException(status_code==404, detail="User not found in block list")
+        raise HTTPException(status_code=404, detail="User not found in block list")
     
     db.delete(blocked)
     db.commit()
