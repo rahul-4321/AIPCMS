@@ -3,7 +3,6 @@ from app.services.vision_service import vision_service
 from app.services.user_service import user_service
 from app.database import get_db
 from sqlalchemy.orm import Session
-from typing import Optional
 from app.models import ModerationLog
 
 router = APIRouter()
@@ -11,7 +10,7 @@ router = APIRouter()
 @router.post("/analyze")
 async def analyze_image(
     file: UploadFile = File(...),
-    user_id: Optional[str] =Form(None),
+    user_id: str =Form(...),
     db: Session = Depends(get_db)
 ):
     

@@ -11,7 +11,7 @@ router = APIRouter()
 
 class TextRequest(BaseModel):
     text: str
-    user_id: str = None
+    user_id: str
 
 @router.post("/analyze")
 async def analyze_text(request: TextRequest, db: Session = Depends(get_db)):
